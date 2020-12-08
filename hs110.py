@@ -231,15 +231,14 @@ class HS110:
         return   
     
     # json should be sent if command includes "energy" or "state"
-    if "energy" in str(self.args) or "state" in str(self.args):
+    if False:
       logger.debug("Sent:     {}".format(hs_cmd))
       logger.debug("Received: {}".format(received_data))
       if received_data:  # OR (received_data is not None):
         self.send_json(received_data)
     else:
       # Direct command, so print to console and exit
-      print("Sent:     ", hs_cmd)
-      print("Received: ", received_data)
+      print(received_data)
       # write out the text file logs if required  
       if text_logging:      
         out = time.strftime("%Y-%m-%d %H:%M:%S") + ",Command: " + hs_cmd + ",,\n"
